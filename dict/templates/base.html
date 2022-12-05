@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>English-Turkmen Dictionary</title>
+        <link type="text/css" rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
+    </head>
+    <body style="background-image: url({% static 'pattern.jpg' %});">
+        <div class="container">
+            <style>
+               
+                article {
+  background: linear-gradient(
+    to right, 
+    hsl(45 100% 62%), 
+    hsl(204 63% 29%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+            </style>
+            <article>
+        <h1 class="d-flex justify-content-center m-3" style=" font-family: 'Alfa Slab One', sans-serif;">English-Turkmen Dictionary</h1>
+            </article>
+            
+        <form method="POST" action="{% url 'index' %}">
+            {% csrf_token %}
+           <!-- <select name="lang" class="form-select mb-2" aria-label="Default select example">
+              <option selected>Select language</option>
+              <option  value="tkm">Turkmen</option>
+              <option  value="eng">English</option>
+            </select>
+            <div class="input-group mb-3" style="border-radius: 25px;">
+                <input type="text" name="text" class="form-control p-3"  placeholder="{% if old_word %} {{old_word}} {% else %}Type Word... {% endif %}" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary p-3" type="submit">Search</button>
+                </div>
+              </div>     
+            -->
+            {{ word_form }}
+        </form>
+        <h3 class="text-light mt-3">Results: </h3>
+        {% if words_list %}
+       
+        {% for word in words_list %}
+        <div class="card text-white bg-dark mb-3" style="max-width: 100%;">
+            <div class="card-header p-3"><h4>{{word.title}}</h4></div>
+            
+            <div class="card-body">
+              <h5 class="card-title">{{word.description}}</h5>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+    </body>
+</html>
