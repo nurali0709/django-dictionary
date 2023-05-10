@@ -1,8 +1,11 @@
+import logging
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.forms import modelform_factory
 from .models import Word
-from .forms import WordForm
+from .forms import *
+
+
 
 def index(request):
     word_form = WordForm(request.POST)
