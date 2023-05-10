@@ -6,8 +6,8 @@ LANG_CHOICES = [
 ]
 
 class Word(models.Model):
-    title = models.CharField('Word', max_length=255)
-    description = models.TextField('Description')
+    title = models.CharField('Söz', max_length=255)
+    description = models.TextField('Beýany')
     lang = models.CharField('Lang', max_length=255, choices = LANG_CHOICES, default = "Turkmen")
     
     def __str__(self):

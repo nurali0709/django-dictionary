@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>English-Turkmen Dictionary</title>
+      <title>English-Turkmen Sözlük</title>
         <link type="text/css" rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
 
             </style>
             <article>
-        <h1 class="d-flex justify-content-center m-3" style=" font-family: 'Alfa Slab One', sans-serif;">English-Turkmen Dictionary</h1>
+        <h1 class="d-flex justify-content-center m-3" style=" font-family: 'Alfa Slab One', sans-serif;">English-Turkmen Sözlük</h1>
             </article>
             
         <form method="POST" action="{% url 'index' %}">
@@ -44,7 +44,7 @@
             -->
             {{ word_form }}
         </form>
-        <h3 class="text-light mt-3">Results: </h3>
+        <h3 class="text-light mt-3">Netijeler: </h3>
         {% if words_list %}
        
         {% for word in words_list %}
